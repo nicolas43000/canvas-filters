@@ -23,7 +23,7 @@ function upload() {
                 }
             }
         } else {
-            alert("not an image");
+            alert("This is not an image.");
         }
     }
 }
@@ -80,7 +80,7 @@ download.onclick = function () {
 };
 
 function applyFilter(filters) {
-    context.filter = filters.sepiaFilter + filters.greyFilter + filters.brightnessFilter  + filters.invertFilter  + filters.blurFilter ;
+    context.filter = filters.sepiaFilter + filters.greyFilter + filters.brightnessFilter + filters.invertFilter + filters.blurFilter;
     console.log(context.filter);
     context.drawImage(img, 0, 0, canvas.width, canvas.height);
 }
