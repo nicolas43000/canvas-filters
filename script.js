@@ -5,11 +5,12 @@ canvas.height = document.getElementById("div1").offsetHeight;
 let context = canvas.getContext("2d");
 context.filter = '';
 
-let fileinput = document.getElementById('input');
+let fileInput = document.getElementById('input');
 let img = new Image();
 
+
 function upload() {
-    fileinput.onchange = function (evt) {
+    fileInput.onchange = function (evt) {
         var files = evt.target.files;
         var file = files[0];
         if (file.type.match('image.*')) {
@@ -27,23 +28,48 @@ function upload() {
     }
 }
 
-var invert = document.getElementById('invert');
-invert.onclick = function () {
-    context.filter = 'invert(1)';
-    context.drawImage(img, 0, 0, canvas.width, canvas.height);
+filters = {
+    greyFilter: '',
+    sepiaFilter: '',
+    brightnessFilter: '',
+    invertFilter: '',
+    blurFilter: ''
 };
 
-var grey = document.getElementById('grey');
-grey.onclick = function () {
-    context.filter = 'grayscale(1)';
-    context.drawImage(img, 0, 0, canvas.width, canvas.height);
-};
+let grey = document.getElementById('grey');
+grey.addEventListener('input', function () {
+    let greyFilter = 'grayscale('+ grey.value +')';
+    filters.greyFilter = greyFilter;
+    applyFilter(filters);
+});
 
-var blur = document.getElementById('blur');
-blur.onclick = function () {
-    context.filter = 'blur(10px) ';
-    context.drawImage(img, 0, 0, canvas.width, canvas.height);
-};
+let sepia = document.getElementById('sepia');
+sepia.addEventListener('input', function () {
+    let sepiaFilter = 'sepia('+ sepia.value +')';
+    filters.sepiaFilter = sepiaFilter;
+    applyFilter(filters);
+});
+
+let brightness = document.getElementById('brightness');
+brightness.addEventListener('input', function () {
+    let brightnessFilter = 'brightness('+ brightness.value +')';
+    filters.brightnessFilter = brightnessFilter;
+    applyFilter(filters);
+});
+
+let invert = document.getElementById('invert');
+invert.addEventListener('input', function () {
+    let invertFilter = 'invert('+ invert.value +')';
+    filters.invertFilter = invertFilter;
+    applyFilter(filters);
+});
+
+let blur = document.getElementById('blur');
+blur.addEventListener('input', function () {
+    let blurFilter = 'blur('+ blur.value +'px)';
+    filters.blurFilter = blurFilter;
+    applyFilter(filters);
+});
 
 var download = document.getElementById('download');
 download.onclick = function () {
@@ -53,6 +79,12 @@ download.onclick = function () {
     link.click();
 };
 
+function applyFilter(filters) {
+    context.filter = filters.sepiaFilter + filters.greyFilter + filters.brightnessFilter  + filters.invertFilter  + filters.blurFilter ;
+    console.log(context.filter);
+    context.drawImage(img, 0, 0, canvas.width, canvas.height);
+}
+
 document.getElementById('btnInput').onclick = function() {
     document.getElementById('input').click();
-}
+};

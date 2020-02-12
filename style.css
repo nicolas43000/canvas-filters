@@ -44,6 +44,7 @@ html, body {
 .importer {
     margin: 15px 0px;
     border-radius: 50%;
+    border: 0;
     background-color: #186055;
     color: white;
     height: 45px;
@@ -57,10 +58,14 @@ html, body {
     justify-content: space-between;
 }
 
-.btn {
-    margin: 10px 0px;
-    width: 45%;
-    height: 90px;
+.filtres > div {
+    margin: auto;
+    padding: 12px 0px;
+    width: 80%;
+}
+
+.input {
+    width: 100%;
 }
 
 .exporter {
