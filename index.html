@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Mini projet</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="https://kit.fontawesome.com/c712722437.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="title">Modifier mon image</div>
+        <div class="divParent">
+            <div id="div1" class="div1">
+                <canvas id="my-canvas"></canvas>
+            </div>
+            <div class="div2">
+                <p class="select">Sélectionner une image</p>
+                <button id="btnInput" class="importer" for="input" type="button" ><i class="fas fa-plus"></i></button>
+                <div class="filtres">
+                    <button class="btn" type="button" id="invert">Inversion</button>
+                    <button class="btn" type="button" id="grey">Niveau de gris</button>
+                    <button class="btn" type="button" id="blur">Blur</button>
+                </div>
+                <input id="input" type='file' style="display: none" onclick="upload()"/><br>
+                <button class="exporter" type="button" id="download">Exporter </button>
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript" src="script.js"></script>
+</html>
