@@ -81,7 +81,6 @@ download.onclick = function () {
 
 function applyFilter(filters) {
     context.filter = filters.sepiaFilter + filters.greyFilter + filters.brightnessFilter + filters.invertFilter + filters.blurFilter;
-    console.log(context.filter);
     context.drawImage(img, 0, 0, canvas.width, canvas.height);
 }
 
